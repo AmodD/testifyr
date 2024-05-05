@@ -22,11 +22,20 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # Build job
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create Dev Dir
+        run: |
+          mkdir dev
+          cp index.html dev/index.html
+
   # Single deploy job since we're just deploying
   deploy:
     environment:
       name: github-pages-dev
-        url: ${{ steps.deployment.outputs.page_url.branch }}/branch/${{ github.ref }}
+        url: ${{ steps.deployment.outputs.page_url.branch }}dev
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
