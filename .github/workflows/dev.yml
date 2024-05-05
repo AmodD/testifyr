@@ -26,7 +26,8 @@ jobs:
   deploy:
     environment:
       name: github-pages-dev
-      url: ${{ dev.steps.deployment.outputs.page_url }}
+        #url: ${{ steps.deployment.outputs.page_url }}
+      url: dev
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
