@@ -29,7 +29,9 @@ jobs:
       - name: Create Dev Dir
         run: |
           mkdir dev
-          cp index.html dev/index.html
+          pwd
+          ls -la
+          #cp index.html dev/index.html
 
   # Single deploy job since we're just deploying
   deploy:
