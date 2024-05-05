@@ -29,6 +29,7 @@ jobs:
       - name: Create Dev Dir
         run: |
           mkdir dev
+          cd ..
           pwd
           ls -la
           #cp index.html dev/index.html
