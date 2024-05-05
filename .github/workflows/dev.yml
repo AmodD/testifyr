@@ -29,13 +29,8 @@ jobs:
       - uses: actions/checkout@v3
       - name: Create Dev Dir
         run: |
-          pwd
-          ls -la
           mkdir dev
-          cd ..
-          pwd
-          ls -la
-          #cp index.html dev/index.html
+          cp index.html dev/index.html
 
   # Single deploy job since we're just deploying
   deploy:
