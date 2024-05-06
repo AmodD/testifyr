@@ -40,27 +40,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
           ref: dev
           path: dev
-      - name: Create Dev Dir
-        run: |
-          ls -la
-          cd dev
-          ls -la
-          #          cp index.html dev/index.html
       - name: Checkout
         uses: actions/checkout@v4
         with:
           ref: test
           path: test
-      - name: Create Test Dir
-        run: |
-          ls -la
-          cd test
-          ls -la
-          #mkdir test
-          #cp index.html test/index.html
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
