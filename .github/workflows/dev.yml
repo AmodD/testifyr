@@ -42,19 +42,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          path: test
-      - name: Create Test Dir
-        run: |
-          mkdir test
-          cp index.html test/index.html
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
           path: dev
       - name: Create Dev Dir
         run: |
           mkdir dev
           cp index.html dev/index.html
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          path: test
+      - name: Create Test Dir
+        run: |
+          mkdir test
+          cp index.html test/index.html
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
