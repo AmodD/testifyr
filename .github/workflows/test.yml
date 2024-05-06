@@ -34,12 +34,14 @@ jobs:
   # Single deploy job since we're just deploying
   deploy:
     environment:
-      name: github-pages-dev
+      name: github-pages-test
       url: ${{ steps.deployment.outputs.page_url}}test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: main
       - name: Checkout Dev
         uses: actions/checkout@v4
         with:
