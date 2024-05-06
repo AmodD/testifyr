@@ -41,6 +41,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
+          ref: dev
           path: dev
       - name: Create Dev Dir
         run: |
@@ -51,6 +52,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
+          ref: test
           path: test
       - name: Create Test Dir
         run: |
