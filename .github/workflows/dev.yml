@@ -45,15 +45,20 @@ jobs:
       - name: Create Dev Dir
         run: |
           ls -la
-          cp index.html dev/index.html
+          cd dev
+          ls -la
+          #          cp index.html dev/index.html
       - name: Checkout
         uses: actions/checkout@v4
         with:
           path: test
       - name: Create Test Dir
         run: |
-          mkdir test
-          cp index.html test/index.html
+          ls -la
+          cd test
+          ls -la
+          #mkdir test
+          #cp index.html test/index.html
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
