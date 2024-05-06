@@ -44,7 +44,7 @@ jobs:
           path: dev
       - name: Create Dev Dir
         run: |
-          mkdir dev
+          ls -la
           cp index.html dev/index.html
       - name: Checkout
         uses: actions/checkout@v4
