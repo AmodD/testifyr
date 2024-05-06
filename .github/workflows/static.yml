@@ -1,5 +1,5 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+name: Deploy to Production
 
 on:
   # Runs on pushes targeting the default branch
@@ -22,6 +22,15 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # Build job
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Create Test Dir
+        run: |
+          ls -la
+
   # Single deploy job since we're just deploying
   deploy:
     environment:
@@ -31,6 +40,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Checkout Dev
+        uses: actions/checkout@v4
+        with:
+          ref: dev
+          path: dev
+      - name: Checkout Test
+        uses: actions/checkout@v4
+        with:
+          ref: test
+          path: test
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact

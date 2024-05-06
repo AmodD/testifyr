@@ -29,8 +29,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: Create Test Dir
         run: |
-          mkdir test
-          cp index.html test/index.html
+          ls -la
 
   # Single deploy job since we're just deploying
   deploy:
@@ -41,12 +40,18 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Checkout Dev
+        uses: actions/checkout@v4
+        with:
+          ref: dev
+          path: dev
+      - name: Checkout Test
+        uses: actions/checkout@v4
+        with:
+          ref: test
+          path: test
       - name: Setup Pages
         uses: actions/configure-pages@v5
-      - name: Create Test Dir
-        run: |
-          mkdir test
-          cp index.html test/index.html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
